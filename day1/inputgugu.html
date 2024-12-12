@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="/servlettest/js/jquery-3.7.1.min.js"></script>
+<script >
+$(document).ready(function(){
+	$("form").on('submit',function(e){
+		let start = $("#start").val();
+		let end = $("#end").val();
+		if(start <= end && start>=2 && start <=9 && end>=2 && end <=9){
+		}
+		else{
+			e.preventDefault();
+			$("#result").html("입력값을 다시 확인하세요 2~9")
+		}
+	});
+});
+</script>
+<body>
+<h1>구구단</h1>
+<form action="/jsptest/outputgugu.jsp" method=post>
+시작단<input type="text" name="start" id="start"><br>
+종료단<input type="text" name="end" id="end"><br>
+<input type="submit" value="시작"> 
+</form>
+<div id="result"></div>
+</body>
+</html>
