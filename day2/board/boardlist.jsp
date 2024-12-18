@@ -14,9 +14,8 @@
 <%
  ArrayList<BoardDTO> list =(ArrayList<BoardDTO>)request.getAttribute("boardlist");
 	if(list != null){
-		for(BoardDTO a : list){
-			out.println("<li>"+list+"</li>");
-			}
+			out.println(list);
+
 	}
 	else{
 		out.println("값이 없습니다");
