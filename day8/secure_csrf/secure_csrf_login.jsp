@@ -1,3 +1,4 @@
+<%@page import="java.util.UUID"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
@@ -24,6 +25,8 @@
 if(request.getParameter("id") !=null){
 	session.setAttribute("sessionid", request.getParameter("id"));
 	session.setAttribute("sessionpw", request.getParameter("pw"));
+	//시큐어코딩 -토큰 문자열생성 세션 저장
+	session.setAttribute("CSRF_TOKEN", UUID.randomUUID().toString());
 }
 %>
 
@@ -31,5 +34,7 @@ if(request.getParameter("id") !=null){
 <h4><a href='secure_csrf_inputpw.jsp'>암호변경하기</a></h4>
 <h4><a href='secure_csrf_mypage.jsp'>내정보보기</a></h4>
 <h4><a href='secure_csrf_logout.jsp'>로그아웃하기</a></h4>
+
+<img src="http://127.0.0.1:8071/servlettest/nonsecure_csrf_inputpw.jsp">
 </body>
 </html>
